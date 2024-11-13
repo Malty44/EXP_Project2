@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h1><%= heading %></h1>
+      <p><%= content %></p>
+    </section>
+
+    <section>
+      <h2>Featured Products</h2>
+      <ul>
+        <% for (let i = 0; i < products.length; i++) { %>
+          <li>
+            <h3><%= products[i].name %></h3>
+            <p><%= products[i].description %></p>
+            <p>Price: $<%= products[i].price %></p>
+            <a href="/products/<%= products[i].id %>">View Product</a>
+          </li>
+        <% } %>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <%= year %> <%= company %></p>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
