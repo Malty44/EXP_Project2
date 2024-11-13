@@ -2,14 +2,18 @@
   "name": "exp_project2",
   "version": "1.0.0",
   "description": "Website to run exp2",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "nodemon src/app.js"
   },
   "author": "Magnani Patrick - magnap@usi.ch",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
-    "mongodb": "^6.10.0"
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
+    "nodemon": "^3.1.7",
+    "router": "^2.0.0"
   }
 }
