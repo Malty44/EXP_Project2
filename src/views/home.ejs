@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-  <header id = "HLeft">
+  <header class = "banners" id = "HLeft">
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
@@ -17,7 +17,7 @@
     </nav>
   </header>
 
-  <header id = "HRight">
+  <header class = "banners" id = "HRight">
     <nav>
       <ul>
         <li><a href="/">Home</a></li>
@@ -27,30 +27,58 @@
     </nav>
   </header>
 
-  <main>
-    <section>
+  <div class = "mid_container">
+    <div id = "header">
+      <img src = "/img/blackbeard.jpg" style="height: 150px;">
       <h1><%= heading %></h1>
       <p><%= content %></p>
-    </section>
+    </div>
 
-    <section>
-      <h2>Featured Products</h2>
+    <div id = "info_pannel">
+      <h1>
+          Disclaimer:
+      </h1>
+      <h2>
+        This site is and will be used to assess whether different types of writing cases and colors influence the 
+        readers ease of understanding and identifying required information.
+
+        As this experiment requires somewhat personal information, there will be a formular to complete on the next page.
+        Note that this information will not be disclosed nor published and/or sold to any external source. Everything written
+        on this site, will remain on the site for the duration of the experiment, after which it will be disposed of.
+      </h2>
+      <h2>Below is a list of what you may find in the formular you are asked to complete:</h2>
       <ul>
-        <% for (let i = 0; i < products.length; i++) { %>
-          <li>
-            <h3><%= products[i].name %></h3>
-            <p><%= products[i].description %></p>
-            <p>Price: $<%= products[i].price %></p>
-            <a href="/products/<%= products[i].id %>">View Product</a>
-          </li>
-        <% } %>
+        <li>
+          Name and Surname
+        </li>
+        <li>
+          Age (with option to "prefere not to say")
+        </li>
+        <li>
+          Gender (with option to "prefere not to say")
+        </li>
+        <li>
+          whether you use computers and/or screens regularly
+        </li>
+        <li>
+          Any visual impairments
+        </li>
+        <li>
+          whether you play videogames or not and for how long
+        </li>
+        <li>
+          An optional field where you can complete any information you feel needs extra explanation
+        </li>
       </ul>
-    </section>
-  </main>
+    </div>  
+    
+  </div>
+  
+  <div class = "next_button">
+      <button type="button" > To the form! </button>
+  </div>
+    
 
-  <footer>
-    <p>&copy; <%= year %> <%= company %></p>
-  </footer>
 
   <script src="/js/script.js"></script>
 </body>
