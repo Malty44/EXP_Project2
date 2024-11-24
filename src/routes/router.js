@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
   res.render('home', data);
 });
 
-
+router.get('/form', (req, res) => {
+  res.render('form');
+});
 
 module.exports = router;
