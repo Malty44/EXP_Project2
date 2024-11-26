@@ -1,1 +1,106 @@
-<p> Hello </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Form Page</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/form.css">
+</head>
+<body class = "main">
+
+    <header class = "banners" id = "HLeft">
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+    
+      <header class = "banners" id = "HRight">
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/news">News</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <div class = "mid_container">
+        <div id = "header">
+            <img src = "/img/blackbeard.jpg" style="height: 150px;">
+          <h1> Form Page </h1>
+        </div><br>
+
+        <div class = "form_container">
+            <form id = "myForm" action="/submit_form" method="POST">
+                <label for = "full_name"> Full Name: </label>
+                <input type = "text" id = "full_name" name = "full_name" required><br>
+                <label for="age"> Age: (leave on 0 if you do not want to specify) </label>
+                <div class = "slider">
+                    <input type="range" id="age" name="age" max="100" min="0" class = "slide_bar">
+                    <span id = "slider_value"> 50 </span>
+                </div>
+                <div class = "gender_checkbox" >
+                    <label for="gender"> Gender: </label><br>
+                    <input type = "radio" id = "gender" name="gender" value="male"> Male 
+                    <input type = "radio" id = "gender" name="gender" value="female"> Female 
+                    <input type = "radio" id = "gender" name="gender" value="prefer_not_to_say"> Prefere not to say 
+                </div>
+                <div class = "pc_use">
+                    <label for="pc_utilisation"> Do you use a PC/laptop on a daily basis?</label>
+                    <input type = "radio" id = "pc_utilisation" name="pc_usage" value="yes"> Yes
+                    <input type = "radio" id = "pc_utilisation" name="pc_usage" value="no"> No
+                </div>
+
+                <div class = "visual_problems">
+                    <label for="visual_problems"> Do you have any visual impairments?</label>
+                    <input type = "radio" id = "visual_problems" name="visual" value="yes"> Yes
+                    <input type = "radio" id = "visual_problems" name="visual" value="no"> No
+                </div>
+
+                <div class = "videogames">
+                    <label for="videogames"> Do you play any videogames? </label>
+                    <input type = "radio" id = "videogames" name="videoG" value="yes"> Yes
+                    <input type = "radio" id = "videogames" name="videoG" value="no"> No
+                </div>
+
+                <div class = "sports">
+                    <label for="sports"> Have you/ Do you practice any sports? </label>
+                    <input type = "radio" id = "sports" name="sports" value="yes"> Yes
+                    <input type = "radio" id = "sports" name="sports" value="no"> No
+                </div>
+
+                <div class = "additional info">
+                    <label for="additional_info"> Any additional information you'd like to share? </label> <br>
+                    <textarea id = "additional_info" name = "additional_info" rows = "4" cols = "50"></textarea>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+
+        </div>
+        <div id = "footer">
+            <h2> Now that we have collected all the relevant data, feel free to proceede to the test.</h2>
+            <h2> Please note that the test is not too long but not short either. The time it takes to complete it is subjective since each individual
+                has their own pace. A general estimation is that the test shouldn't take more than 5-10 minutes to complete.
+            </h2>
+            <h2> WARNING!: Please do not stop to do other tasks and leave the test running since this test is timed. Unless you have an actual emergency,
+                please go through the whole test at once. Otherwise, your answers will be discarded and you'd have wasted both our and your time.
+            </h2>
+            <h2> Thank you for your time and contribution!</h2>
+            </div>
+            <div class = "img_gif">
+                <img src = "/img/onward.gif">
+            </div>
+    </div>
+
+    
+        <div class = "next_button">
+            <button type="button" onclick="window.location.href='/form'" > To the form! </button>
+        </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>

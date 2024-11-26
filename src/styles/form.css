@@ -1,0 +1,41 @@
+.form_container{
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+form > label{
+    align-self: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+
+form > div{
+    font-size: 20px;    
+    font-family: 'Oswald', sans-serif;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.slider {
+    flex-grow: 1;
+}
+
+.submit-button {
+    background-color: #b38a32;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+}
+
+.img_gif{
+    text-align: center;
+}
+

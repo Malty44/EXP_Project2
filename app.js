@@ -1,9 +1,19 @@
 const express = require('express');
-
 const path = require('path');
+const cors = require('cors');
+
 
 const app = express();
 
+app.use(cors({
+  origin: 'https://exp-project2.onrender.com', // Replace with your allowed origin
+  credentials: true
+}));
+
+// Optional additional preflight handler
+app.options('*', cors());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'src', 'styles')));
