@@ -3,6 +3,7 @@ const router = express.Router();
 
 // Root route
 router.get('/', (req, res) => {
+  console.log('Root route accessed');
   const data = {
     title: 'Home Page',
     heading: 'Welcome to the experiment',
