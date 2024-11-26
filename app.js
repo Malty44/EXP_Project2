@@ -6,9 +6,13 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-  origin: 'https://exp-project2.onrender.com', // Replace with your allowed origin
-  credentials: true
+  origin: 'http://localhost:3000' // Specify your allowed origin
 }));
+
+app.use((req, res, next) => {
+  console.log('Origin:', req.headers.origin); // Log the origin header
+  next();
+});
 
 // Optional additional preflight handler
 app.options('*', cors());
@@ -26,6 +30,7 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'src', 'favicon.ico'
 app.use((req, res) => {
   res.status(404).send('Page not found');
 });
+
 
 
 const PORT = process.env.PORT || 3000;
