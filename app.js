@@ -21,6 +21,13 @@ app.use(express.static('src'));
 const mainRouter = require(path.join(__dirname, 'src', 'routes', 'router.js'));
 app.use('/', mainRouter);
 app.use('/favicon.ico', express.static(path.join(__dirname, 'src', 'favicon.ico')));
+
+
+app.use((req, res) => {
+  res.status(404).send('Page not found');
+});
+
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
