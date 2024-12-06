@@ -1,30 +1,34 @@
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 
 const app = express();
 
-app.use(cors({
-  origin: 'http://localhost:3000' // Specify your allowed origin
-}));
 
-app.use((req, res, next) => {
-  console.log('Origin:', req.headers.origin); // Log the origin header
-  next();
-});
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// Optional additional preflight handler
-app.options('*', cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'src', 'styles')));
 app.use(express.static('src'));
 const mainRouter = require(path.join(__dirname, 'src', 'routes', 'router.js'));
+const formRouter = require(path.join(__dirname, 'src', 'routes', 'formRoute.js'));
 app.use('/', mainRouter);
+app.use('/form', formRouter);
 app.use('/favicon.ico', express.static(path.join(__dirname, 'src', 'favicon.ico')));
+
+
+
+mongoose.connect('mongodb://localhost:27017/form_submission')
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
 
 
 app.use((req, res) => {

@@ -36,7 +36,7 @@
         </div><br>
 
         <div class = "form_container">
-            <form id = "myForm" action="/submit_form" method="POST">
+            <form id = "myForm" action="/form/submit_form" method="POST">
                 <label for = "full_name"> Full Name: </label>
                 <input type = "text" id = "full_name" name = "full_name" required><br>
                 <label for="age"> Age: (leave on 0 if you do not want to specify) </label>
@@ -78,14 +78,14 @@
                     <label for="additional_info"> Any additional information you'd like to share? </label> <br>
                     <textarea id = "additional_info" name = "additional_info" rows = "4" cols = "50"></textarea>
                 </div>
-                <button type="submit" class="submit-button">Submit</button>
+                <button type="button" class="submit-button" onclick="validateAndRedirect()">Submit</button>
             </form>
 
         </div>
         <div id = "footer">
             <h2> Now that we have collected all the relevant data, feel free to proceede to the test.</h2>
             <h2> Please note that the test is not too long but not short either. The time it takes to complete it is subjective since each individual
-                has their own pace. A general estimation is that the test shouldn't take more than 5-10 minutes to complete.
+                has their own pace. A general estimation is that the test shouldn't take more than 5-10 minutes to complete. Once you click sumbit, you will begin the test!
             </h2>
             <h2> WARNING!: Please do not stop to do other tasks and leave the test running since this test is timed. Unless you have an actual emergency,
                 please go through the whole test at once. Otherwise, your answers will be discarded and you'd have wasted both our and your time.
@@ -97,10 +97,7 @@
             </div>
     </div>
 
-    
-        <div class = "next_button">
-            <button type="button" onclick="window.location.href='/form'" > To the form! </button>
-        </div>
+    <script src="/js/form.js"></script>
     <script src="/js/script.js"></script>
 </body>
 </html>
