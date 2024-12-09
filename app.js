@@ -22,7 +22,7 @@ app.use('/favicon.ico', express.static(path.join(__dirname, 'src', 'favicon.ico'
 
 
 
-mongoose.connect('mongodb://localhost:27017/form_submission')
+mongoose.connect('mongodb+srv://main:Youtube44@formsubmissionexp2.goagw.mongodb.net/?retryWrites=true&w=majority&appName=formSubmissionEXP2')
   .then(() => {
     console.log('Connected to MongoDB');
   })
