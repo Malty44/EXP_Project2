@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="main">
+
+
+  <div class="mid_container">
+    <div id="header">
+      <img src="/img/blackbeard.jpg" style="height: 150px;">
+      <h1><%= heading %></h1>
+      <p><%= content %></p>
+    </div>
+
+    <form id="quiz_form" action="/exp/submit-answer" method="POST">
+        <% questions.forEach((question, index) => { %>
+          <div class="question-container">
+            <% if (question.text) { %>
+              <!-- Display index and text for questions with a text property -->
+              <h2><%= index + 1 %>. <%= question.text %></h2>
+            <% } else if (question.image) { %>
+              <!-- Display index and image for questions with an image property -->
+              <h2><%= index + 1 %>.</h2>
+              <div class="question-image">
+                <img src="<%= question.image %>" alt="Question Image <%= index + 1 %>" />
+              </div>
+            <% } %>
+            <div class="radio-group">
+              <% question.options.forEach((option, optionIndex) => { %>
+                <label>
+                  <input 
+                    type="radio" 
+                    name="question_<%= index %>" 
+                    value="<%= optionIndex %>"
+                  >
+                  <%= option %>
+                </label>
+              <% }); %>
+            </div>
+          </div>
+        <% }); %>
+        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+  </div>
+  
+    
+  <script src="/js/exp.js"></script>
+  
+</body>
+</html>

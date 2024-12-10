@@ -19,5 +19,6 @@ function validateAndRedirect() {
       return;  // Stop the function if validation fails
     }
 
-    document.getElementById('myForm').submit();
+    const redirectUrl = `/exp?name=${encodeURIComponent(fullName)}`;
+    window.location.href = redirectUrl;
   }

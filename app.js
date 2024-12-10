@@ -18,6 +18,7 @@ const mainRouter = require(path.join(__dirname, 'src', 'routes', 'router.js'));
 const formRouter = require(path.join(__dirname, 'src', 'routes', 'formRoute.js'));
 app.use('/', mainRouter);
 app.use('/form', formRouter);
+
 app.use('/favicon.ico', express.static(path.join(__dirname, 'src', 'favicon.ico')));
 
 

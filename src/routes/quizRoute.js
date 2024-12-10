@@ -1,24 +1,8 @@
 const express = require('express');
+const FormModel = require('../mongo/mongoose'); 
 const router = express.Router();
-const FormModel = require('../mongo/mongoose'); // Ensure this is correctly set up to interact with your MongoDB
 
-// Root route
 router.get('/', (req, res) => {
-    const data = {
-        title: 'Home Page',
-        heading: 'Welcome to the experiment',
-        content: 'This is the page in which you can find all the information about the website'
-    };
-    res.render('home', data);
-});
-
-router.get('/form', (req, res) => {
-    res.render('form');
-});
-
-
-
-router.get('/exp', (req, res) => {
     const name = req.query.name;
       res.render('exp', {
           title: 'Quiz Page',
@@ -114,10 +98,10 @@ router.get('/exp', (req, res) => {
   router.post('/exp/submit-answer', async (req, res) => {
       const { name, answers } = req.body;
   
-      //Perform validation on the data
-      if (!name || !Array.isArray(answers) || answers.some(answer => answer === null)) {
-          return res.status(400).send('Invalid data.');
-      }
+      // Perform validation on the data
+    //   if (!name || !Array.isArray(answers) || answers.some(answer => answer === null)) {
+    //       return res.status(400).send('Invalid data.');
+    //   }
   
       try {
           // Find the user by their name
