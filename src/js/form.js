@@ -18,7 +18,5 @@ function validateAndRedirect() {
       alert("Please fill out all required fields before proceeding.");
       return;  // Stop the function if validation fails
     }
-
-    const redirectUrl = `/exp?name=${encodeURIComponent(fullName)}`;
-    window.location.href = redirectUrl;
+    document.getElementById('myForm').submit();
   }

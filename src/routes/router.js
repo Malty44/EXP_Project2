@@ -111,9 +111,10 @@ router.get('/exp', (req, res) => {
       });
   });
   
-  router.post('/exp/submit-answer', async (req, res) => {
+  router.post('/exp/answer', async (req, res) => {
       const { name, answers } = req.body;
-  
+      console.log('Received request body:', req.body);
+      console.log('Received request headers:', req.headers);
       //Perform validation on the data
       if (!name || !Array.isArray(answers) || answers.some(answer => answer === null)) {
           return res.status(400).send('Invalid data.');
@@ -135,6 +136,15 @@ router.get('/exp', (req, res) => {
           console.error('Error saving quiz answers:', error);
           res.status(500).send('Error saving quiz answers.');
       }
+  });
+
+
+  router.get('/final', (req, res) => {
+    res.render('final', {
+        title: 'Thank you page',
+        heading: 'Thank you for participating in the experiment',
+        content: 'This is the page in which you can find all the information about the website'
+    });
   });
   
 module.exports = router;

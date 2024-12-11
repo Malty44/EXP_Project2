@@ -19,7 +19,7 @@ function submitQuiz() {
   const finalAnswers = answers.map((answer, index) => {
     return answer === correctAnswers[index];
   });
-  fetch(`/exp/submit-answer`, {
+  fetch('/exp/answer', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ function submitQuiz() {
   .then(data => {
     alert('Quiz submitted successfully');
     console.log(data);
-    window.location.href = '/exp'; // Redirect to another page
+    window.location.href = '/final'; // Redirect to another page
   })
   .catch(error => console.error('Error submitting quiz:', error));
 }

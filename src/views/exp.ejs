@@ -16,7 +16,7 @@
       <p><%= content %></p>
     </div>
 
-    <form id="quiz_form" action="/exp/submit-answer" method="POST">
+    <form id="quiz_form" action="/exp/answer" method="POST">
         <% questions.forEach((question, index) => { %>
           <div class="question-container">
             <% if (question.text) { %>

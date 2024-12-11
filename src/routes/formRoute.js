@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.post('/submit_form', async (req, res) => {
   const { full_name, age, gender, pc_usage, visual, videoG, sports, additional_info } = req.body;
-
+    console.log("I AM IN THE ROUTER");
   // Validate that required fields are filled out
   if (!full_name || !gender || !pc_usage || !visual || !videoG || !sports) {
       return res.status(400).send('Please complete all required fields.');
