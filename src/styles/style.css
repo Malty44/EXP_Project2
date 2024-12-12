@@ -4,7 +4,7 @@
 .main{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
     height: 100vh;
     background-color:#b38a32  ;
 }
@@ -69,14 +69,13 @@
 .next_button {
     position: fixed;
     bottom: 20px; /* Adjust distance from bottom as needed */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Ensure perfect center */
+    right: 50px;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
     outline: none;
     appearance: none;
-    background-color: #333;
+    background-color: black;
     color: white;
     font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
@@ -86,12 +85,12 @@
 }
 
 .next_button:hover {
-    background-color: #444;
-    transform: translateX(-50%) scale(1.05);
+    background-color: bisque;
+    transform: scale(1.05);
 }
 
 .next_button:active {
-    transform: translateX(-50%) scale(0.95);
+    transform:  scale(0.95);
 }
 
 .question-container {

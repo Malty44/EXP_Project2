@@ -50,7 +50,7 @@ function submitQuiz() {
   .then(data => {
     alert('Quiz submitted successfully');
     console.log(data);
-    window.location.href = '/final'; // Redirect to another page
+    window.location.href = `/final?name=${encodeURIComponent(userName)}`; // Redirect to another page
   })
   .catch(error => console.error('Error submitting quiz:', error));
 }

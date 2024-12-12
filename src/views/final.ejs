@@ -8,91 +8,50 @@
 </head>
 <body class = "main">
   <header class = "banners" id = "HLeft">
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-    </nav>
+    
   </header>
 
   <header class = "banners" id = "HRight">
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/blog">Blog</a></li>
-        <li><a href="/news">News</a></li>
-      </ul>
-    </nav>
+    <div class = "next_button">
+      <button type="button" onclick="window.location.href='/form'" > To the form! </button>
+    </div>
   </header>
 
   <div class = "mid_container">
     <div id = "header">
       <img src = "/img/blackbeard.jpg" style="height: 150px;">
-      <h1><%= heading %></h1>
-      <p><%= content %></p>
+
     </div>
 
     <div id = "info_pannel">
       <h1>
-          Disclaimer:
-      </h1>
-      <h2>
-        This site is and will be used to assess whether different types of writing cases and colors influence the 
-        readers ease of understanding and identifying required information.
+        <h1>Quiz Stats for <%= name %></h1>
+        <h2>Your Answers:</h2>
+  <ul>
+    <% answers.forEach((answer, index) => { %>
+      <li>Question <%= index + 1 %>: <%= answer ? 'Correct' : 'Incorrect' %></li>
+    <% }); %>
+  </ul>
+  <h2>Time Taken for Each Question:</h2>
+  <ul>
+    <% times.forEach((time, index) => { %>
+      <li>Question <%= index + 1 %>: <%= time %> ms</li>
+    <% }); %>
+  </ul>
 
-        As this experiment requires somewhat personal information, there will be a formular to complete on the next page.
-        Note that this information will not be disclosed nor published and/or sold to any external source. Everything written
-        on this site, will remain on the site for the duration of the experiment, after which it will be disposed of.
-      </h2>
-      <h2>Below is a list of what you may find in the formular you are asked to complete:</h2>
-      <ul>
-        <li>
-          Name and Surname
-        </li>
-        <li>
-          Age (with option to "prefere not to say")
-        </li>
-        <li>
-          Gender (with option to "prefere not to say")
-        </li>
-        <li>
-          whether you use computers and/or screens regularly
-        </li>
-        <li>
-          Any visual impairments
-        </li>
-        <li>
-          whether you play videogames or not and for how long
-        </li>
-        <li>
-          An optional field where you can complete any information you feel needs extra explanation
-        </li>
-      </ul>
-
-      <h2>
-        If you agree to the terms mentioned above, please do continue to the form. Thank you for your time and contribution!
-      </h2>
+  <h2>Average Time Per Question:</h2>
+  <h2>
+    <%= (times.reduce((total, time) => total + time, 0) / times.length).toFixed(2) %> ms
+  </h2>
+      
 
     </div>  
 
-    <div id = "footer">
-      <h2> This site has been created entirely by me ( Patrick Magnani - <a href="https://mail.google.com/mail/?view=cm&fs=1&to=patrick.magnani.4@gmail.com&su=Experiment%20site&body=Write%20here%20please" target="_blank" rel="noopener noreferrer">Contact Me</a>) 
-      and my collegue Enio Peza </h2>
-      <h2> !Any unauthorized usage of this website/webpage is permitted since this is just a temporary site.</h2>
-      <h2> Please do however note that if this website is used without my written consent, anything that the person
-        does with said website is out of my control and therefore I am not punishable in any way or form for the consequences.
-      </h2>
-      <h2> This site can be fount at the following git repository: <a href="https://github.com/Malty44/EXP_Project2.git" target="_blank"> Click me! </a></h2>
-    </div>
+    
     
   </div>
 
-  <div class = "next_button">
-    <button type="button" onclick="window.location.href='/form'" > To the form! </button>
-</div>
-    
+  
 <script src="/js/home.js"></script>
 
 </body>

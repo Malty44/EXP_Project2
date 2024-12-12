@@ -95,7 +95,7 @@ router.get('/exp', (req, res) => {
               },
               {
                   image: '/img/code2.png',
-                  options: ['scene-defnition()', 'scenes-definition()', 'scenes-definited()', 'scenes-definiton()']
+                  options: ['scene-defnition()', 'scenes-definition()', 'scenes-definited()', 'scene-definition()']
               },
               {
                   text: 'jump rope',
@@ -137,15 +137,42 @@ router.get('/exp', (req, res) => {
           console.error('Error saving quiz answers:', error);
           res.status(500).send('Error saving quiz answers.');
       }
+
   });
 
 
-  router.get('/final', (req, res) => {
-    res.render('final', {
-        title: 'Thank you page',
-        heading: 'Thank you for participating in the experiment',
-        content: 'This is the page in which you can find all the information about the website'
-    });
+  router.get('/final', async (req, res) => {
+    const { name } = req.query; // Get the user's name from the query parameters
+  
+    if (!name) {
+      return res.status(400).send('User name is required.');
+    }
+  
+    try {
+      // Fetch the user's data from MongoDB
+        const user = await FormModel.findOne({ fullName: name });
+        console.log('Fetched User:', user);
+  
+      if (!user) {
+        return res.status(404).send('User not found.');
+      }
+      const timeDurations = user.time.map((timestamp, index) => {
+        if (index === 0) return 0; 
+        const currentTime = new Date(timestamp).getTime();
+        const previousTime = new Date(user.time[index - 1]).getTime();
+        return Math.abs(currentTime - previousTime); 
+      });
+      // Render the final stats page with the retrieved data
+      res.render('final', {
+        title: 'Quiz Statistics',
+        name: user.fullName,
+        answers: user.answers,
+        times: timeDurations ,
+      });
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+      res.status(500).send('Error fetching user data.');
+    }
   });
   
 module.exports = router;
