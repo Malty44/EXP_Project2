@@ -1,3 +1,15 @@
+
+const timeArray = []; // Array to store selection times
+
+// Add event listeners to track time selections dynamically
+document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+  radio.addEventListener('change', (event) => {
+    const questionIndex = parseInt(event.target.name.split('_')[1], 10); // Extract question index
+    const currentTime = new Date().toISOString(); // Get the current timestamp
+    timeArray[questionIndex] = currentTime; // Update the timeArray with the current time
+  });
+});
+
 function submitQuiz() {
   const form = document.getElementById('quiz_form');
   const formData = new FormData(form);
@@ -19,12 +31,14 @@ function submitQuiz() {
   const finalAnswers = answers.map((answer, index) => {
     return answer === correctAnswers[index];
   });
+
+
   fetch('/exp/answer', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ name: userName, answers: finalAnswers })
+    body: JSON.stringify({ name: userName, answers: finalAnswers, timeArray: timeArray })
   })
   .then(response => {
     if (response.ok) {

@@ -10,7 +10,8 @@ const formSchema = new mongoose.Schema({
   videoG: { type: String, required: true },
   sports: { type: String, required: true },
   additionalInfo: { type: String, default: '' },
-  answers: { type: [Boolean], default: [] }
+  answers: { type: [Boolean], default: [] },
+  time : { type: [], default: [] }
 });
 
 // Create a Mongoose model based on the schema

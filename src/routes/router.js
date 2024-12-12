@@ -112,7 +112,7 @@ router.get('/exp', (req, res) => {
   });
   
   router.post('/exp/answer', async (req, res) => {
-      const { name, answers } = req.body;
+      const { name, answers, timeArray } = req.body;
       console.log('Received request body:', req.body);
       console.log('Received request headers:', req.headers);
       //Perform validation on the data
@@ -129,6 +129,7 @@ router.get('/exp', (req, res) => {
   
           // Update the user with the new answers
           user.answers = answers;
+          user.time = timeArray;
           await user.save();
   
           res.json({ status: 'success', message: 'Quiz answers saved successfully.' });
