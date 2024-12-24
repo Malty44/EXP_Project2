@@ -10,7 +10,7 @@ either hosted somewhere (e.g. render.com I can guarantee that it works well) or 
 2. The data is stored in a database, which can be and should be created and renamed to your own liking, but a default database is provided and ready to run. We recommend that
 you change the database to your own if you know and/or have knowledge of database integration using `mongoose` and `mongodb` in `NodeJS`.
 
-3. All the data stored in the database is stored under <strong>JSON</strong> format, which is then converted into CSV using the python code found in the only python file in the root of the directory.
+3. All the data stored in the database is stored under <strong>JSON</strong> format, which is then converted into CSV using the python code found in the only python file in the root of the directory. This then will convert the data into visual representations of what you want to account for. The code is self explanatory using naming schemes that explain what they do themselves so a simple and quick read would be more than enough to understand what to change. 
 
 
 ### Here are some key ideas for the safe navigation of the code
