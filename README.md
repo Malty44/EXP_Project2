@@ -19,6 +19,15 @@ you change the database to your own if you know and/or have knowledge of databas
 
 2. The main file which runs and organizes everything is the app.js file found outside src at `EXP_PROJECT2>app.js`. In here you can find the database integration and a basic setup for routers and the server.
 
-3. All the necessary packets and commands have been setup already in the package.json file. <h4> To run the site you must use `npm run dev` </h4>
+3. All the necessary packets and commands have been setup already in the package.json file. <h4> To run the site you must use `npm run dev`. </h4>
+
+4. If you want to add more questions, you can find the whole question section in `EXP_PROJECT2>src>routes>router.js` at the router for the `/exp` page. 
+
+5. Both `style.css` and `form.css` work together to bring the page to life, so if you decide to add more pages, include the css files found at `EXP_PROJECT2>src>styles`.
 
 
+## IMPORTANT NOTE:
+
+<h3> This git repo is public so if you want to use this code for your own personal projects, please fork and don't commit to the main branch. Thank you in advance! </h3>
+
+<h3> Everything has been set up to work by just deploying the website and running the python script manually when enough data has been collected. At the moment of the last commit everything is working, thus if anything breaks it is due to some modification you have implemented.</h3>
