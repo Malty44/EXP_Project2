@@ -2,4 +2,5 @@
 
 ## This is a website that is designed so that you can easily add more cases and questions to the experiment if needed.
 
-## Below are some instructions on how to navigate the code and how everithing works.
+### Below are some instructions on how to navigate the code and how everithing works.
+
